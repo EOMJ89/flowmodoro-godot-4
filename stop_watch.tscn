@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwmy1l37av7xv"]
+
+[ext_resource type="Script" path="res://StopWatch.gd" id="1_rspyv"]
+[ext_resource type="Script" path="res://MainNode.gd" id="1_srokb"]
+[ext_resource type="Script" path="res://Countdown.gd" id="3_fk54w"]
+
+[sub_resource type="SystemFont" id="SystemFont_diuvv"]
+
+[node name="MainNode" type="Node" node_paths=PackedStringArray("stopWatch", "countdown", "timeLabel")]
+script = ExtResource("1_srokb")
+stopWatch = NodePath("StopWatch")
+countdown = NodePath("Countdown")
+timeLabel = NodePath("TimeLabel")
+metadata/_edit_vertical_guides_ = [716.0]
+
+[node name="StopWatch" type="Node" parent="."]
+script = ExtResource("1_rspyv")
+
+[node name="Countdown" type="Node" parent="."]
+script = ExtResource("3_fk54w")
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_right = 716.0
+offset_bottom = 249.0
+theme_override_fonts/font = SubResource("SystemFont_diuvv")
+theme_override_font_sizes/font_size = 180
+text = "00:00:00"
+horizontal_alignment = 1
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+offset_top = 256.0
+offset_right = 716.0
+offset_bottom = 482.0
+alignment = 1
+
+[node name="StartPauseButton" type="Button" parent="HFlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+toggle_mode = true
+text = "Start Focus?"
+
+[node name="BreakWorkButton" type="Button" parent="HFlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Break?"
+
+[node name="ResetButton" type="Button" parent="HFlowContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "Reset"
+
+[connection signal="toggled" from="HFlowContainer/StartPauseButton" to="." method="_on_start_pause_button_toggled"]
+[connection signal="pressed" from="HFlowContainer/BreakWorkButton" to="." method="_on_break_work_button_pressed"]
+[connection signal="pressed" from="HFlowContainer/ResetButton" to="." method="_on_reset_button_pressed"]
