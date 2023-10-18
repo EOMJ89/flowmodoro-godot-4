@@ -18,6 +18,7 @@ script = ExtResource("1_rspyv")
 
 [node name="Countdown" type="Node" parent="."]
 script = ExtResource("3_fk54w")
+time_divisor = 5.0
 
 [node name="TimeLabel" type="Label" parent="."]
 offset_right = 716.0

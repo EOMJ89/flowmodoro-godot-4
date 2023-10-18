@@ -11,7 +11,7 @@ var currMode: GLOBALS.ModeType = GLOBALS.ModeType.NONE
 
 
 func _ready() -> void:
-	self._on_reset_button_pressed()
+	self.reset_main_component()
 
 
 func _process(_delta: float) -> void:
@@ -37,9 +37,17 @@ func _on_start_pause_button_toggled(_button_pressed: bool) -> void:
 
 
 func _on_reset_button_pressed() -> void:
+	self.reset_main_component()
+
+
+func reset_main_component() -> void:
+	self.reset_both_timers()
+	self.currMode = GLOBALS.ModeType.NONE
+
+
+func reset_both_timers() -> void:
 	self.stopWatch.reset()
 	self.countdown.reset()
-	self.currMode = GLOBALS.ModeType.NONE
 
 
 func set_timer_text(text: String) -> void:
@@ -52,17 +60,15 @@ func _on_break_work_button_pressed() -> void:
 			pass
 		GLOBALS.ModeType.FOCUS:
 			var time_elapsed: float = self.stopWatch.totalTime
-			self.stopWatch.reset()
-			self.countdown.reset()
+			self.reset_both_timers()
 			self.countdown.initialize_end_time(time_elapsed)
 			self.countdown.switch_mode()
 			self.currMode = GLOBALS.ModeType.BREAK
 		GLOBALS.ModeType.BREAK:
-			self.stopWatch.reset()
-			self.countdown.reset()
+			self.reset_both_timers()
 			self.stopWatch.switch_mode()
 			self.currMode = GLOBALS.ModeType.FOCUS
 
 
 func _on_countdown_countdown_ended():
-	self._on_reset_button_pressed()
+	self.reset_main_component()
