@@ -46,7 +46,7 @@ func set_timer_text(text: String) -> void:
 	self.timeLabel.text = text
 
 
-func _on_break_work_button_pressed():
+func _on_break_work_button_pressed() -> void:
 	match self.currMode:
 		GLOBALS.ModeType.NONE:
 			pass
@@ -62,3 +62,7 @@ func _on_break_work_button_pressed():
 			self.countdown.reset()
 			self.stopWatch.switch_mode()
 			self.currMode = GLOBALS.ModeType.FOCUS
+
+
+func _on_countdown_countdown_ended():
+	self._on_reset_button_pressed()

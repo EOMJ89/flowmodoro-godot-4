@@ -54,9 +54,8 @@ func start_run_mode() -> void:
 	print("Inicia RUN MODE para ", self.name)
 
 
-## Get time elapsed
+## Get time elapsed in inherited classes
 func calc_time_elapsed() -> void:
-	# Take pause time into account
 	pass
 
 
@@ -84,7 +83,7 @@ func refresh_time_paused() -> float:
 
 
 ## Switch mode when pressing the button
-func switch_mode():
+func switch_mode() -> void:
 	match self.currStatus:
 		GLOBALS.StatusType.NONE:
 			self.start_run_mode()
