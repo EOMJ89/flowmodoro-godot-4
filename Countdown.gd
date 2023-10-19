@@ -28,8 +28,7 @@ func initialize_end_time(time_elapsed: float) -> void:
 func verify_end_of_countdown() -> void:
 	if self.currStatus != GLOBALS.StatusType.RUNNING:
 		return
-
+	
 	if self.totalTime <= 0:
-		print("Tiempo terminado en ", self.name)
 		self.countdown_ended.emit()
 		self.reset()
