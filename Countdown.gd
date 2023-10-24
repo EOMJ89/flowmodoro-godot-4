@@ -4,6 +4,7 @@ extends TimeCalculator
 
 signal countdown_ended
 
+
 @export_range(3, 5, 1.0) var time_divisor: float = 3
 
 
