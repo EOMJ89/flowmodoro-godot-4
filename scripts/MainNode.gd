@@ -6,7 +6,7 @@ extends Node
 @export var timeLabel: Label
 
 
-# Enum Vars
+## Enum Vars
 var currMode: GLOBALS.ModeType = GLOBALS.ModeType.NONE
 
 

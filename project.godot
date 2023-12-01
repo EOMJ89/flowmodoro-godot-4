@@ -11,18 +11,24 @@ config_version=5
 [application]
 
 config/name="FlowmodoroApp"
-run/main_scene="res://stop_watch.tscn"
-config/features=PackedStringArray("4.0", "Mobile")
+run/main_scene="res://Scenes/stop_watch.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GLOBALS="*res://GLOBALS.gd"
+GLOBALS="*res://Scripts/GLOBALS.gd"
 
 [display]
 
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
+
+[file_customization]
+
+folder_colors={
+"res://Scenes/": "red"
+}
 
 [rendering]
 

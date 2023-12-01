@@ -1,39 +1,38 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwmy1l37av7xv"]
 
-[ext_resource type="Script" path="res://StopWatch.gd" id="1_rspyv"]
-[ext_resource type="Script" path="res://MainNode.gd" id="1_srokb"]
-[ext_resource type="Script" path="res://Countdown.gd" id="3_fk54w"]
-
-[sub_resource type="SystemFont" id="SystemFont_diuvv"]
+[ext_resource type="Script" path="res://scripts/MainNode.gd" id="1_k5rtu"]
+[ext_resource type="Script" path="res://scripts/StopWatch.gd" id="2_8ii5s"]
+[ext_resource type="Script" path="res://scripts/Countdown.gd" id="3_80xr2"]
+[ext_resource type="Theme" uid="uid://b08r67qvko387" path="res://themes/clock_theme.tres" id="4_rje6h"]
 
 [node name="MainNode" type="Node" node_paths=PackedStringArray("stopWatch", "countdown", "timeLabel")]
-script = ExtResource("1_srokb")
+script = ExtResource("1_k5rtu")
 stopWatch = NodePath("StopWatch")
 countdown = NodePath("Countdown")
-timeLabel = NodePath("TimeLabel")
-metadata/_edit_vertical_guides_ = [716.0]
+timeLabel = NodePath("HFlowContainer/TimeLabel")
 
 [node name="StopWatch" type="Node" parent="."]
-script = ExtResource("1_rspyv")
+script = ExtResource("2_8ii5s")
 
 [node name="Countdown" type="Node" parent="."]
-script = ExtResource("3_fk54w")
-time_divisor = 5.0
-
-[node name="TimeLabel" type="Label" parent="."]
-offset_right = 716.0
-offset_bottom = 249.0
-theme_override_fonts/font = SubResource("SystemFont_diuvv")
-theme_override_font_sizes/font_size = 180
-text = "00:00:00"
-horizontal_alignment = 1
+script = ExtResource("3_80xr2")
 
 [node name="HFlowContainer" type="VBoxContainer" parent="."]
-offset_left = 126.0
-offset_top = 256.0
-offset_right = 590.0
-offset_bottom = 597.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_rje6h")
+theme_override_constants/separation = 40
 alignment = 1
+
+[node name="TimeLabel" type="Label" parent="HFlowContainer"]
+layout_mode = 2
+theme = ExtResource("4_rje6h")
+theme_override_font_sizes/font_size = 150
+text = "00:00:01"
+horizontal_alignment = 1
 
 [node name="StartPauseButton" type="Button" parent="HFlowContainer"]
 layout_mode = 2
