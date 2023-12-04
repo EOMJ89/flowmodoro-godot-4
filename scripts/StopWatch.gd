@@ -4,7 +4,7 @@ extends TimeCalculator
 
 func _ready() -> void:
 	super.reset()
-	print("preparo ", self.name)
+	#print("preparo ", self.name)
 
 
 ## Get time elapsed taking pause time into account

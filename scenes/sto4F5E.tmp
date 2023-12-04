@@ -16,6 +16,7 @@ script = ExtResource("2_8ii5s")
 
 [node name="Countdown" type="Node" parent="."]
 script = ExtResource("3_80xr2")
+time_divisor = null
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

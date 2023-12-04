@@ -47,7 +47,7 @@ func reset() -> void:
 	self.pauseTime = 0
 	self.totalTime = 0
 	self.currStatus = GLOBALS.StatusType.NONE
-	print("restart ", self.name)
+	#print("restart ", self.name)
 
 
 ## Process elapsed time when timer is running
@@ -61,7 +61,7 @@ func start_run_mode() -> void:
 	self.calc_time_elapsed()
 
 	self.currStatus = GLOBALS.StatusType.RUNNING
-	print("Inicia RUN MODE para ", self.name)
+	#print("Inicia RUN MODE para ", self.name)
 
 
 ## Get elapsed time elapsed in inherited classes
@@ -74,7 +74,7 @@ func start_pause_mode() -> void:
 	self.pauseStartTimestamp = self.currTime
 
 	self.currStatus = GLOBALS.StatusType.PAUSED
-	print("Inicia PAUSE MODE para ", self.name)
+	#print("Inicia PAUSE MODE para ", self.name)
 
 
 ## Set mode to RUNNING after PAUSE and update the total paused time
@@ -82,7 +82,7 @@ func stop_pause_mode() -> void:
 	self.pauseTime = self.refresh_time_paused()
 
 	self.currStatus = GLOBALS.StatusType.RUNNING
-	print("Termina PAUSE MODE para ", self.name)
+	#print("Termina PAUSE MODE para ", self.name)
 
 
 ## Calculates the total paused time 

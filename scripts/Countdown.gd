@@ -10,7 +10,7 @@ signal countdown_ended
 
 func _ready() -> void:
 	super.reset()
-	print("preparo ", self.name)
+	#print("preparo ", self.name)
 
 
 ## Get time elapsed taking pause time into account
@@ -24,6 +24,7 @@ func calc_time_elapsed() -> void:
 func initialize_end_time(time_elapsed: float) -> void:
 	var future_time: float = time_elapsed / self.time_divisor
 	self.runStartTimestamp = floori(self.currTime + future_time) + 0.999
+
 
 ## Verify if the countdown ended and send the signal if the countdown ended
 func verify_end_of_countdown() -> void:

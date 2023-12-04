@@ -22,11 +22,14 @@ func _on_reset_button_pressed() -> void:
 ## Reset entire component
 func reset_main_component() -> void:
 	self.reset_both_timers()
+	self.reset_buttons()
 	self.currMode = GLOBALS.ModeType.NONE
 
 
 ## Reset timer
 func reset_both_timers() -> void:
+	self.stopWatch.switch_mode()
+	self.countdown.switch_mode()
 	self.stopWatch.reset()
 	self.countdown.reset()
 
@@ -83,5 +86,8 @@ func _on_start_pause_button_toggled(_button_pressed: bool) -> void:
 
 
 ## Signal Reaction
-func _on_countdown_countdown_ended():
+func _on_countdown_countdown_ended() -> void:
 	self.reset_main_component()
+
+func reset_buttons () -> void:
+	$Control/HFlowContainer/VBoxContainer/StartPauseButton.button_pressed = false
